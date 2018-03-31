@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Video Player</title>
+	<script src="./js/media.js"></script>
+	<script src="./js/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/video.css">
+</head>
+<body>
+	<div id="video-container">
+		<!-- Video -->
+		<video class="video active" id="video1" src="https://wesmedia.wesleyan.edu/tmpVideo/SW/WZZM062217175815.mp4" type="video/mp4" width="640" height="365" preload="metadata"></video>
+		<video class="video" id="video2" src="https://wesmedia.wesleyan.edu/tmpVideo/SW/WZZM062217180016.mp4" type="video/mp4" width="640" height="365" preload="metadata"></video>
+		<video class="video" id="video3" src="https://wesmedia.wesleyan.edu/tmpVideo/SW/WZZM062217180217.mp4" type="video/mp4" width="640" height="365" preload="metadata"></video>
+		<!-- Video Controls -->
+		<div id="video-controls">
+			<button type="button" id="play-pause" class="play">Play</button>
+			<input type="range" id="seek-bar" value="0" step="0.05">
+			<button type="button" id="mute">Mute</button>
+			<input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+		</div>
+	</div>
+
+	<script src="./js/controller.js"></script>
+</body>
+</html>

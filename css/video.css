@@ -1,0 +1,7 @@
+.video.active {
+	display: block;
+}
+
+.video {
+	display: none;
+}
