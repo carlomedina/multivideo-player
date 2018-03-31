@@ -7,6 +7,7 @@ var video
 var seekBar
 var videoToSurface = 0
 
+// the function below returns the index of the relevant video chunk for the given time elapsed
 function selectWhichVideo(time) {
 	// this ideally can run in O(log n) i think, but i don't want
 	// to spend a lot of time. so i'll do an O(n) implementation instead
@@ -18,10 +19,14 @@ function selectWhichVideo(time) {
 	return i
 }
 
+// this returns time elapsed relative to the relevant video chunk
+// e.g. say there are two videos of 2 mins each. say the time elapsed requested in the controller is three minutes
+// this function will return 1 minute since the time elapsed relative the the second video chunk
 function selectWhichVideoTime(time) {
 	return time - cumsum[selectWhichVideo(time)] 
 }
 
+// updates the seek bar based on the current total time elapsed
 function updateSeekBarByVideo() {
 	// Calculate the slider value
 	var totaTimeElapsed = cumsum[videoToSurface] + videos[videoToSurface].currentTime
@@ -31,6 +36,7 @@ function updateSeekBarByVideo() {
 	seekBar.value = value;
 }
 
+// updates the video screen to show the video at the selected time elapsed
 function updateVideoBySeekBar() {
 		
 		// Calculate the new time
@@ -54,9 +60,7 @@ function updateVideoBySeekBar() {
 		video.play();
 	}
 
-function startRestartListeners() {
-	
-}
+
 
 $(window).on('load', function() {
 	// Video
